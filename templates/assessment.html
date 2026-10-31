@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Symptom Assessment - Medical Symptom Reasoning System</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header class="top-nav">
+    <div class="brand">
+      <a href="{{ url_for('index') }}" class="brand-title">Medical Symptom Reasoning System</a>
+    </div>
+    <nav class="nav-links">
+      <a href="{{ url_for('index') }}">Home</a>
+      <a href="{{ url_for('assessment') }}" class="active">Symptom Check</a>
+      <a href="{{ url_for('about') }}">About & AI</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="{{ url_for('index') }}" class="btn-secondary">Back to Home</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="page-header">
+      <h1 class="page-title">Symptom Assessment</h1>
+      <p class="page-subtitle">Enter your symptoms naturally or select them from the medical knowledge base.</p>
+    </div>
+
+    <!-- Demonstration Presets for Viva -->
+    <div class="demo-bar">
+      <div class="demo-label">College Viva Demonstration Presets:</div>
+      <div class="demo-buttons">
+        <button type="button" class="demo-btn" onclick="applyDemoPreset('ili')">Test 1: Fever + Cough + Fatigue</button>
+        <button type="button" class="demo-btn" onclick="applyDemoPreset('headache')">Test 2: Headache + Nausea</button>
+        <button type="button" class="demo-btn" onclick="applyDemoPreset('gastro')">Test 3: Vomiting + Diarrhea</button>
+        <button type="button" class="demo-btn" onclick="applyDemoPreset('nlp1')">Test 4: NLP "Fever & body pain"</button>
+        <button type="button" class="demo-btn" onclick="applyDemoPreset('nlp2')">Test 5: NLP "Head hurts & vomiting"</button>
+        <button type="button" class="demo-btn warning" onclick="applyDemoPreset('warning')">Test 6: Chest pain warning</button>
+      </div>
+    </div>
+
+    <form id="assessment-form" class="assessment-grid">
+      <!-- Left Column: Patient Profile & Natural Description -->
+      <div class="form-card">
+        <h2 class="card-title">1. Context & Natural Description</h2>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="age_group">Age Group</label>
+            <select id="age_group" name="age_group">
+              <option value="Child">Child (< 13 yrs)</option>
+              <option value="Teenager">Teenager (13–18 yrs)</option>
+              <option value="Adult" selected>Adult (19–64 yrs)</option>
+              <option value="Older Adult">Older Adult (65+ yrs)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="duration">Duration</label>
+            <select id="duration" name="duration">
+              <option value="Less than 1 day">Less than 1 day</option>
+              <option value="1–2 days" selected>1–2 days</option>
+              <option value="3–7 days">3–7 days</option>
+              <option value="More than 1 week">More than 1 week</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="severity">Perceived Severity</label>
+            <select id="severity" name="severity">
+              <option value="Mild">Mild</option>
+              <option value="Moderate" selected>Moderate</option>
+              <option value="Severe">Severe</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="narrative">Naturally Describe Your Symptoms (NLP Processing)</label>
+          <textarea
+            id="narrative"
+            name="narrative"
+            rows="5"
+            placeholder="Example: I have had fever and headache for two days and I feel very tired."
+          ></textarea>
+          <span class="field-hint">The AI NLP pipeline will parse colloquial terms, handle negations, and normalize entities.</span>
+        </div>
+
+        <div class="detected-box" id="nlp-feedback" style="display: none;">
+          <div class="detected-title">NLP Real-Time Detected Symptoms:</div>
+          <div class="detected-tags" id="nlp-tags"></div>
+        </div>
+      </div>
+
+      <!-- Right Column: Searchable Symptom Multi-Select -->
+      <div class="form-card">
+        <div class="card-header-flex">
+          <h2 class="card-title">2. Symptom Checklist (Knowledge Base)</h2>
+          <input
+            type="text"
+            id="symptom-search"
+            class="search-input"
+            placeholder="Filter symptoms..."
+            oninput="filterSymptoms(this.value)"
+          />
+        </div>
+
+        <div class="symptom-list-scroll" id="symptom-container">
+          {% if symptoms %}
+            {% for sym in symptoms %}
+              <label class="symptom-checkbox-item" data-name="{{ sym.symptom_name | lower }}" data-category="{{ sym.category | lower }}">
+                <input
+                  type="checkbox"
+                  name="selected_symptoms"
+                  value="{{ sym.symptom_id }}"
+                  id="sym-{{ sym.symptom_id }}"
+                />
+                <div class="symptom-text">
+                  <span class="symptom-name">{{ sym.symptom_name }}</span>
+                  <span class="symptom-category">{{ sym.category }}</span>
+                </div>
+              </label>
+            {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Action Footer -->
+      <div class="form-actions">
+        <button type="submit" class="btn-primary large" id="submit-btn">
+          Analyze Symptoms
+        </button>
+        <button type="button" class="btn-secondary" onclick="resetForm()">
+          Clear All
+        </button>
+      </div>
+    </form>
+
+    <!-- Error Banner -->
+    <div id="error-message" class="error-banner" style="display: none;"></div>
+
+    <!-- Results Section Container (populated dynamically) -->
+    <div id="results-container" style="display: none; margin-top: 2rem;"></div>
+  </main>
+
+  <footer class="site-footer">
+    <p>Medical Symptom Reasoning System · College AI Mini-Project · Educational Prototype Only</p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

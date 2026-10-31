@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About & AI Architecture - Medical Symptom Reasoning System</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header class="top-nav">
+    <div class="brand">
+      <a href="{{ url_for('index') }}" class="brand-title">Medical Symptom Reasoning System</a>
+    </div>
+    <nav class="nav-links">
+      <a href="{{ url_for('index') }}">Home</a>
+      <a href="{{ url_for('assessment') }}">Symptom Check</a>
+      <a href="{{ url_for('about') }}" class="active">About & AI</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="{{ url_for('assessment') }}" class="btn-primary">Start Symptom Check</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="page-header">
+      <h1 class="page-title">About the AI System & Methodology</h1>
+      <p class="page-subtitle">College Artificial Intelligence Mini-Project Documentation.</p>
+    </div>
+
+    <section class="about-card">
+      <h2>1. Project Overview & Problem Formulation</h2>
+      <p>
+        The <strong>Medical Symptom Reasoning System</strong> is an educational prototype developed to explore
+        how hybrid artificial intelligence can bring transparency and safety to digital clinical decision support.
+        Rather than relying on opaque deep neural networks ("black-box" systems) or rigid, hardcoded conditional branches,
+        this system combines natural language processing (NLP), mathematical TF-IDF semantic vectorization,
+        and an evidence-weighted clinical knowledge base.
+      </p>
+    </section>
+
+    <section class="about-card">
+      <h2>2. Core AI Technologies & Architecture</h2>
+      <div class="tech-grid">
+        <div class="tech-item">
+          <strong>Natural Language Processing (NLP)</strong>
+          <p>Clause segmentation, contraction parsing, negation cues detection (e.g., <em>"no fever"</em>), and n-gram phrase matching.</p>
+        </div>
+        <div class="tech-item">
+          <strong>Symptom Normalization</strong>
+          <p>Maps colloquial phrasing (e.g., <em>"head hurts"</em> → Headache, <em>"throwing up"</em> → Vomiting) to canonical medical IDs.</p>
+        </div>
+        <div class="tech-item">
+          <strong>TF-IDF & Cosine Similarity</strong>
+          <p>Converts patient narratives and pattern profiles into term-frequency/inverse-document-frequency vectors to calculate semantic angles.</p>
+        </div>
+        <div class="tech-item">
+          <strong>Weighted Knowledge-Based Reasoning</strong>
+          <p>Evaluates symptom coverage against condition patterns using clinically grounded weight factors ($w \in [0.10, 0.95]$).</p>
+        </div>
+        <div class="tech-item">
+          <strong>Explainable AI (XAI)</strong>
+          <p>Transparently breaks down why results were generated: matched symptoms, weights, missing symptoms, and mathematical contribution.</p>
+        </div>
+        <div class="tech-item">
+          <strong>Rule-Based Red Flag Assessment</strong>
+          <p>Instantly flags critical emergency signs (e.g., chest pain, syncope, cyanosis) to urge immediate emergency care.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-card">
+      <h2>3. Transparent Scoring Mathematics</h2>
+      <p>The system computes a calibrated <strong>Symptom Pattern Match Score</strong>:</p>
+      <div class="math-box">
+        $$\text{Coverage}(P) = \frac{\sum_{s \in S_{\text{matched}}} w(s, P)}{\sum_{s \in S_P} w(s, P)}$$
+        <br>
+        $$\text{Pattern Match Score} = \left[0.75 \times \text{Coverage}(P) + 0.25 \times \text{CosineSimilarity}(Q, P)\right] \times 100$$
+      </div>
+      <p>
+        <strong>Crucial Note:</strong> The score is strictly titled a <em>Symptom Pattern Match Score</em>.
+        It does NOT represent a probability of disease, diagnosis confidence, or clinical prognosis.
+      </p>
+    </section>
+
+    <section class="about-card warning-card">
+      <h2>4. Medical Safety & Academic Disclaimer</h2>
+      <p>
+        This software is built solely for educational and coursework demonstration purposes.
+        It does NOT prescribe medication, recommend drug dosages, or diagnose illnesses.
+        Anyone experiencing persistent, severe, or concerning symptoms should seek immediate care from a qualified healthcare practitioner.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Medical Symptom Reasoning System · College AI Mini-Project</p>
+  </footer>
+</body>
+</html>

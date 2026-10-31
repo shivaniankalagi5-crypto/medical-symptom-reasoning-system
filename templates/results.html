@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Results Dashboard - Medical Symptom Reasoning System</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header class="top-nav">
+    <div class="brand">
+      <a href="{{ url_for('index') }}" class="brand-title">Medical Symptom Reasoning System</a>
+    </div>
+    <nav class="nav-links">
+      <a href="{{ url_for('index') }}">Home</a>
+      <a href="{{ url_for('assessment') }}">Symptom Check</a>
+      <a href="{{ url_for('about') }}">About & AI</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="{{ url_for('assessment') }}" class="btn-primary">New Assessment</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="page-header">
+      <h1 class="page-title">Symptom Analysis Results</h1>
+      <p class="page-subtitle">Explainable AI pattern evaluation and educational risk assessment.</p>
+    </div>
+
+    <div id="results-content">
+      <!-- Populated via script.js from session/state or direct query -->
+      <p>Please perform an assessment on the <a href="{{ url_for('assessment') }}">Symptom Check page</a> to view results.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>Medical Symptom Reasoning System · College AI Mini-Project</p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

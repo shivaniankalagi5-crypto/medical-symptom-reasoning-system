@@ -1,0 +1,6 @@
+{
+  "name": "Medical Symptom Reasoning System",
+  "description": "Understand your symptoms. Get clear, informative guidance through structured symptom assessment, pattern insights, and safety evaluations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

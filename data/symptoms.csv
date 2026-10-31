@@ -1,0 +1,27 @@
+symptom_id,symptom_name,category,synonyms,description
+SYM01,Fever,General,"high temperature,temp,febrile,pyrexia,hot body,running temperature,burning up",Elevated body temperature above normal range (typically > 38.0 C or 100.4 F).
+SYM02,Headache,Neurological,"head pain,head hurting,throbbing head,migraine,head pounding,cephalea",Pain or discomfort situated in the head, scalp, or neck area.
+SYM03,Cough,Respiratory,"coughing,dry cough,hacking,productive cough,phlegm cough,barking cough",Sudden expulsion of air from lungs to clear irritants or secretions.
+SYM04,Sore throat,Respiratory,"throat pain,scratchy throat,raw throat,hurts to swallow,pharyngitis",Pain, scratchiness, or irritation of the throat that often worsens when swallowing.
+SYM05,Fatigue,General,"tired,exhaustion,feeling drained,worn out,lethargy,extreme tiredness,sluggish",Subjective feeling of pervasive tiredness or lack of physical and mental energy.
+SYM06,Body pain,Musculoskeletal,"body ache,aching all over,generalized pain,sore body,whole body hurts",Generalized muscular or systemic discomfort and tenderness across multiple areas.
+SYM07,Nausea,Gastrointestinal,"queasy,sick to my stomach,feel sick,upset stomach,uneasy stomach",Unpleasant sensation of unease and discomfort in the upper stomach with an urge to vomit.
+SYM08,Vomiting,Gastrointestinal,"throwing up,puking,emesis,heaving,threw up,vomit",Involuntary, forceful oral expulsion of contents of the stomach.
+SYM09,Diarrhea,Gastrointestinal,"loose stools,watery stool,frequent bowel movements,runny tummy,stomach upset",Passing looser or more frequent stools than normal.
+SYM10,Abdominal pain,Gastrointestinal,"stomach ache,belly pain,cramps,gut pain,tummy ache,abdominal cramps",Discomfort or pain localized within the peritoneal or abdominal region.
+SYM11,Dizziness,Neurological,"lightheaded,unsteady,woozy,vertigo,off balance,spinning",Sensory alteration of spatial orientation, feeling lightheaded or unsteadiness.
+SYM12,Rash,Dermatological,"skin breakout,hives,skin redness,itchy bumps,dermatitis,eruption",Noticeable change in texture or color of the skin, often itchy or erythematous.
+SYM13,Runny nose,Respiratory,"rhinorrhea,nasal discharge,sniffling,dripping nose,clear mucus",Excess liquid or mucus discharging from the nasal passages.
+SYM14,Nasal congestion,Respiratory,"stuffy nose,blocked nose,plugged nose,sinus blockage,stuffed up",Blockage of nasal passages usually caused by swollen mucous membranes.
+SYM15,Chills,General,"shivering,rigors,cold sweats,shivers,feeling cold,teeth chattering",Sensation of feeling cold accompanied by involuntary shivering or tremors.
+SYM16,Muscle pain,Musculoskeletal,"myalgia,muscle soreness,aching muscles,stiff muscles,sore calves",Aching, tenderness, or soreness localized within muscles or soft tissues.
+SYM17,Joint pain,Musculoskeletal,"arthralgia,stiff joints,joint ache,swollen joints,knee pain,knuckle ache",Discomfort, tenderness, or inflammation in one or more joints.
+SYM18,Loss of appetite,Gastrointestinal,"anorexia,not hungry,poor appetite,no desire to eat,lost appetite",Reduced desire to eat food or feeling satiated abnormally quickly.
+SYM19,Shortness of breath,Respiratory,"breathlessness,dyspnea,hard to breathe,winded,struggling to breathe",Subjective experience of breathing discomfort or insufficient air intake.
+SYM20,Chest pain,Cardiovascular,"chest tightness,chest pressure,chest discomfort,tight chest,stabbing chest",Pain, pressure, or tightness felt anywhere within the thoracic cavity.
+SYM21,Weakness,General,"asthenia,feeble,physically drained,no strength,loss of strength",Lack of physical strength and reduced muscle power or stamina.
+SYM22,Loss of consciousness,Urgent Red Flag,"passed out,fainting,syncope,blacked out,unresponsive",Sudden, brief loss of awareness and responsiveness.
+SYM23,Seizure,Urgent Red Flag,"convulsions,fits,shaking fit,epileptic fit",Sudden, uncontrolled electrical disturbance in the brain causing jerking movements.
+SYM24,Severe confusion,Urgent Red Flag,"altered mental status,delirium,disoriented,hallucinating,not making sense",Acute disorientation regarding time, place, or identity with impaired cognition.
+SYM25,Severe bleeding,Urgent Red Flag,"hemorrhage,uncontrolled bleeding,gushing blood,heavy bleeding",Rapid, non-stopping blood loss from injury or internal orifice.
+SYM26,Blue or grey lips or face,Urgent Red Flag,"cyanosis,turning blue,blue lips,grey face,ashen color",Cyanotic discoloration indicating severe hypoxemia or circulatory compromise.
